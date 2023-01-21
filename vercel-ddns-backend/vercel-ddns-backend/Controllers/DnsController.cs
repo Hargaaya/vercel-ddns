@@ -15,27 +15,27 @@ public class DnsController : Controller
     
     [HttpGet]
     [Route("record")]
-    public async Task<IActionResult> GetRecords(string domainName)
+    public async Task<IActionResult> GetRecords(string domain)
     {
-        var records = await _dnsService.GetRecords(domainName);
+        var records = await _dnsService.GetRecords(domain);
 
         return records is null ? NotFound() : Ok(records);
     }
 
     [HttpPatch]
     [Route("record")]
-    public async Task<IActionResult> UpdateRecord(string domainName, DnsRecord recordData)
+    public async Task<IActionResult> UpdateRecord(string domain, DnsRecord record)
     {
-        var record = await _dnsService.UpdateRecord(domainName, recordData);
+        var updatedRecord = await _dnsService.UpdateRecord(domain, record);
 
-        return record is null ? NotFound() : Ok();
+        return updatedRecord is null ? NotFound() : Ok();
     }
 
     [HttpDelete]
     [Route("record")]
-    public async Task<IActionResult> DeleteRecord(string domainName, string recordName)
+    public async Task<IActionResult> DeleteRecord(string domain, string recordName)
     {
-        var success = await _dnsService.DeleteRecord(domainName, recordName);
+        var success = await _dnsService.DeleteRecord(domain, recordName);
 
         return success is false ? NotFound() : Ok();
     }
