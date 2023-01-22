@@ -16,7 +16,7 @@ public class VercelDnsService : IDnsService
     public VercelDnsService(IConfiguration config) => _apiKey = config.GetValue<string>("DnsApiKey");
     
     /// <summary>
-    /// Instansiates a new <c>RestClient</c>.
+    /// Instantiates a new <c>RestClient</c>.
     /// </summary>
     /// <param name="baseUrl">Base Url</param>
     /// <returns>Instantiated RestClient with API token.</returns>
