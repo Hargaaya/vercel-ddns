@@ -1,18 +1,18 @@
 ﻿namespace vercel_ddns_backend.Models;
 
-public class DnsRecord
+public record DnsRecord
 {
-    public string Id { get; set; }
-    public string Slug { get; set; }
-    public string Name { get; set; }
-    public string Type { get; set; }
-    public string Value { get; set; }
+    public string Id { get; set; } = String.Empty;
+    public string Slug { get; set; } = String.Empty;
+    public string Name { get; set; } = String.Empty;
+    public string Type { get; set; } = String.Empty;
+    public string Value { get; set; } = String.Empty;
     public string? MxPriority { get; set; }
     public string? Priority { get; set; }
-    public string Creator { get; set; }
-    public Int64 Created { get; set; }
-    public Int64 Updated { get; set; }
-    public Int64 CreatedAt { get; set; }
-    public Int64 UpdatedAt { get; set; }
+    public string? Creator { get; set; }
+    public long Created { get; set; }
+    public long Updated { get; set; }
+    public long CreatedAt { get; set; }
+    public long UpdatedAt { get; set; }
     public int Ttl { get; set; }
 }
